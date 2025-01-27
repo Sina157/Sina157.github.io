@@ -4,7 +4,7 @@
 // Incrementing CACHE_VERSION will kick off the install event and force
 // previously cached resources to be updated from the network.
 /** @type {string} */
-const CACHE_VERSION = '1737972349|1406674700';
+const CACHE_VERSION = '1737973514|2571359503';
 /** @type {string} */
 const CACHE_PREFIX = 'Shape Wars Arena-sw-cache-';
 const CACHE_NAME = CACHE_PREFIX + CACHE_VERSION;
