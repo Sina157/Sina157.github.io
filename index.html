@@ -25,10 +25,23 @@
             color: rgba(255, 255, 0, 0.918);
             text-shadow: 5px 5px black;
         }
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            opacity: 1;
+            transition: opacity 1s ease;
+        }
     </style>
 </head>
 
 <body>
+    <div class="overlay" id="overlay" > 
+        <h1>Loading JavaScript...</h1>
+    </div>
     <h1>Games</h1>
     <hr>
     <form action="./pong">
@@ -40,24 +53,33 @@
 </body>
 <script src="telegram.js"></script>
 <script>
-    var data = new URLSearchParams(window.location.search).get('tgWebAppStartParam').split("_")
-    var target_game = data[0]
-    var room_id = null
-    if (Telegram.WebApp.initDataUnsafe != {})
-        var telegram_name = Telegram.WebApp.initDataUnsafe.user.first_name
-    else
-        var telegram_name = null
-    if (data.length != 1) room_id = data[1]
-    var params = ""
-    if (room_id == null) {
-        var url = "https://sina157.github.io/" + target_game
-        if (name != null) url += "?name=" + telegram_name
-    } else {
-        var url = "https://sina157.github.io/" + target_game + "?roomid=" + room_id
-        if (name != null) url += "&name=" + telegram_name
-    }
+    setTimeout(() => {
+        document.getElementById('overlay').style.opacity = '0';
+        document.getElementById('overlay').style.zIndex = "-1"
+    }, 1000);
+    document.addEventListener("DOMContentLoaded", function () {
 
-    window.location.href = url
+        var data = new URLSearchParams(window.location.search).get('tgWebAppStartParam').split("_")
+        var target_game = data[0]
+        var room_id = null
+        if (Telegram.WebApp.initDataUnsafe != {})
+            var telegram_name = Telegram.WebApp.initDataUnsafe.user.first_name
+        else
+            var telegram_name = null
+        if (data.length != 1) room_id = data[1]
+        var params = ""
+        if (room_id == null) {
+            var url = "https://sina157.github.io/" + target_game
+            if (name != null) url += "?name=" + telegram_name
+        } else {
+            var url = "https://sina157.github.io/" + target_game + "?roomid=" + room_id
+            if (name != null) url += "&name=" + telegram_name
+        }
+
+        window.location.href = url
+
+
+    });
 
 </script>
 
