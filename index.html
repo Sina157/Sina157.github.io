@@ -43,7 +43,7 @@
     var data = new URLSearchParams(window.location.search).get('tgWebAppStartParam').split("_")
     var target_game = data[0]
     var room_id = null
-    if (Telegram.WebApp.initDataUnsafe == {})
+    if (Telegram.WebApp.initDataUnsafe != {})
         var telegram_name = Telegram.WebApp.initDataUnsafe.user.first_name
     else
         var telegram_name = null
