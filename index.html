@@ -17,7 +17,7 @@
             padding: 20px;
             font-weight: bold;
             cursor: pointer;
-	    width : 200px;
+            width: 200px;
         }
 
         h1 {
@@ -34,9 +34,31 @@
     <form action="./pong">
         <input type="submit" value="Pong" />
     </form>
-<form action="./sandbox">
+    <form action="./sandbox">
         <input type="submit" value="Sandbox" />
     </form>
 </body>
+<script src="telegram.js"></script>
+<script>
+    var data = new URLSearchParams(window.location.search).get('tgWebAppStartParam').split("_")
+    var target_game = data[0]
+    var room_id = null
+    if (Telegram.WebApp.initDataUnsafe == {})
+        var telegram_name = Telegram.WebApp.initDataUnsafe.user.first_name
+    else
+        var telegram_name = null
+    if (data.length != 1) room_id = data[1]
+    var params = ""
+    if (room_id == null) {
+        var url = "https://sina157.github.io/" + target_game
+        if (name != null) url += "?name=" + telegram_name
+    } else {
+        var url = "https://sina157.github.io/" + target_game + "?roomid=" + room_id
+        if (name != null) url += "&name=" + telegram_name
+    }
+
+    window.location.href = url
+
+</script>
 
 </html>
