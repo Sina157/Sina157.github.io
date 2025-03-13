@@ -187,7 +187,6 @@
 					Promise.race([
 						serviceWorkerRegistrationPromise.then((registration) => {
 							if (registration != null) {
-								window.location.reload(); // bug
 								return Promise.reject(new Error('Service worker already exists.'));
 							}
 							return registration;
