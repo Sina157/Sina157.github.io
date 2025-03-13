@@ -25,14 +25,8 @@ if ('serviceWorker' in navigator) {
     navigator.serviceWorker.getRegistrations().then(function(registrations) {
         for (let registration of registrations) {
             registration.unregister(); // Unregister existing service workers
+ 	    console.log('Unregistered')
         }
-        // Now register the new service worker
-        return navigator.serviceWorker.register('index.service.worker.js');
-    }).then(function(registration) {
-        console.log('Service Worker registered with scope:', registration.scope);
-    }).catch(function(error) {
-        console.error('Service Worker registration failed:', error);
-    });
 }
 
 
