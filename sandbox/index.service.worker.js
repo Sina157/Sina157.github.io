@@ -4,7 +4,7 @@
 // Incrementing CACHE_VERSION will kick off the install event and force
 // previously cached resources to be updated from the network.
 /** @type {string} */
-const CACHE_VERSION = '1741878264|1622692330';
+const CACHE_VERSION = '1741878677|2035464143';
 /** @type {string} */
 const CACHE_PREFIX = 'Sand Box-sw-cache-';
 const CACHE_NAME = CACHE_PREFIX + CACHE_VERSION;
