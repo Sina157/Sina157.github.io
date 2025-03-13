@@ -22,12 +22,20 @@ const FULL_CACHE = CACHED_FILES.concat(CACHEABLE_FILES);
 
 
 if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.getRegistrations().then(function(registrations) {
-        for (let registration of registrations) {
-            registration.unregister(); // Unregister existing service workers
- 	    console.log('Unregistered')
-        }
+    navigator.serviceWorker.register('index.service.worker.js')
+        .then((registration) => {
+            console.log('Service Worker registered with scope:', registration.scope);
+        })
+        .catch((error) => {
+            if (error.message.includes('service worker already exists')) {
+                console.error('Service Worker already exists. Refreshing the page...');
+                window.location.reload(); // Refresh the page to resolve the issue
+            } else {
+                console.error('Service Worker registration failed:', error);
+            }
+        });
 }
+
 
 
 self.addEventListener('install', (event) => {
