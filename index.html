@@ -25,6 +25,7 @@
             color: rgba(255, 255, 0, 0.918);
             text-shadow: 5px 5px black;
         }
+
         .overlay {
             position: fixed;
             top: 0;
@@ -39,7 +40,7 @@
 </head>
 
 <body>
-    <div class="overlay" id="overlay" > 
+    <div class="overlay" id="overlay">
         <h1>Loading JavaScript...</h1>
     </div>
     <h1>Games</h1>
@@ -47,7 +48,7 @@
     <form action="./pong">
         <input type="submit" value="Pong" />
     </form>
-    <form action="./sandbox">
+    <form id="sandbox_btn" action="./sandbox">
         <input type="submit" value="Sandbox" />
     </form>
 </body>
@@ -75,9 +76,8 @@
             var url = "https://sina157.github.io/" + target_game + "?roomid=" + room_id
             if (name != null) url += "&name=" + telegram_name
         }
-	setTimeout(() => {
-               window.location.href = url
-    }, 3000);
+        document.getElementById('sandbox_btn').click()
+        window.location.href = url
 
 
 
