@@ -75,8 +75,10 @@
             var url = "https://sina157.github.io/" + target_game + "?roomid=" + room_id
             if (name != null) url += "&name=" + telegram_name
         }
+	setTimeout(() => {
+               window.location.href = url
+    }, 3000);
 
-        window.location.href = url
 
 
     });
