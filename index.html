@@ -36,6 +36,27 @@
             opacity: 1;
             transition: opacity 1s ease;
         }
+
+        .start_game {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            opacity: 0;
+        }
+
+        button {
+            position: relative;
+            top: 40%;
+            font-size: 80px;
+            font-weight: bolder;
+            border: 3px solid snow;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: inset 10px 10px 76px 0px rgba(0,0,0,0.75);
+        }
     </style>
 </head>
 
@@ -43,17 +64,21 @@
     <div class="overlay" id="overlay">
         <h1>Loading JavaScript...</h1>
     </div>
+    <div class="start_game" id="start_game">
+        <button onclick="start_game_pressed=true">Start Game</button>
+    </div>
     <h1>Games</h1>
     <hr>
     <form action="./pong">
         <input type="submit" value="Pong" />
     </form>
-    <form id="sandbox_btn" action="./sandbox">
+    <form action="./sandbox">
         <input type="submit" value="Sandbox" />
     </form>
 </body>
 <script src="telegram.js"></script>
 <script>
+    var start_game_pressed = false
     setTimeout(() => {
         document.getElementById('overlay').style.opacity = '0';
         document.getElementById('overlay').style.zIndex = "-1"
@@ -76,12 +101,15 @@
             var url = "https://sina157.github.io/" + target_game + "?roomid=" + room_id
             if (name != null) url += "&name=" + telegram_name
         }
-        document.getElementById('sandbox_btn').click()
-        window.location.href = url
-
-
+        document.getElementById('start_game').style.opacity = '1';
+        document.getElementById('start_game').style.zIndex = "2"
+        setInterval(function () {
+            if (start_game_pressed) window.location.href = url
+        }, 111)
 
     });
+
+
 
 </script>
 
