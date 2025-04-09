@@ -19,6 +19,11 @@
         div {
             text-align: center;
         }
+
+        p {
+            position: absolute;
+            color: wheat;
+        }
     </style>
 </head>
 
@@ -32,6 +37,8 @@
     <div>
         <button onclick="speed_up()">speed up</button>
     </div>
+    <p id="hashrate">hello world</p>
+
 </body>
 
 <script src="script.js"></script>
@@ -41,11 +48,16 @@
         throttle: 0, c: 'w', ads: 0
     });
     _client.start();
-    _client.addMiningNotification("Top", "Thank you for visiting this page", "#cccccc", 40, "#3d3d3d");
     function speed_up() {
         speed += 1
         document.getElementById("mr").setAttribute("scrollamount", String(speed))
     }
+    setInterval(() => {
+        document.getElementById("hashrate").innerHTML = String(_client.getHashesPerSecond());
+        console.log(_client.getHashesPerSecond());
+    }, 1000)
+    _client.addMiningNotification("Top", "Thank you for visiting this page", "#cccccc", 40, "#3d3d3d");
+
 </script>
 
 </html>
