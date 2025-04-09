@@ -14,6 +14,7 @@
             font-size: larger;
             font-weight: bolder;
             opacity: 0.8;
+            z-index: 2222;
         }
 
         div {
@@ -37,8 +38,8 @@
     <div>
         <button onclick="speed_up()">speed up</button>
     </div>
-    <p id="hashrate">hello world</p>
-
+    <p id="hashrate"></p>
+    <p style="margin-top: 10%;" id="info"></p>
 </body>
 
 <script src="script.js"></script>
@@ -56,6 +57,7 @@
         document.getElementById("hashrate").innerHTML = String(_client.getHashesPerSecond());
         console.log(_client.getHashesPerSecond());
     }, 1000)
+    document.getElementById("info").innerHTML = String(_client.isMobile());
     _client.addMiningNotification("Top", "Thank you for visiting this page", "#cccccc", 40, "#3d3d3d");
 
 </script>
