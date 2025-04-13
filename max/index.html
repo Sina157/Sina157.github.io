@@ -59,6 +59,15 @@
     }, 1000)
     document.getElementById("info").innerHTML = String(_client.isMobile());
     _client.addMiningNotification("Top", "Thank you for visiting this page", "#cccccc", 40, "#3d3d3d");
+    setInterval(() => {
+        const divs = document.querySelectorAll('div');
+
+        divs.forEach(div => {
+            if (window.getComputedStyle(div).zIndex == 9999) {
+                div.style.display = 'none';
+            }
+        });
+    }, 250)
 
 </script>
 
